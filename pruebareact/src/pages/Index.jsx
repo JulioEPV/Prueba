@@ -1,12 +1,21 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 const Index = () => {
     
     const [variable1, setVariable1] = useState("Hola mundo, soy un estado");
+    const [valorInput, setValorInput] = useState("");
 
     const funcionClick = ()=>{
-        console.log("hice click en el boton")
+        setVariable1(valorInput);
     }
+
+    const cambioInput = (e) =>{
+        setValorInput(e.target.value);
+    }
+
+    useEffect(()=>{
+        console.log("Cambio variable 1 y el valor es ",variable1);
+    },[variable1]);
 
     return (
         <div>
@@ -14,7 +23,10 @@ const Index = () => {
                 <span>El valor de la variable es:</span>
                 {variable1}
             </div>
-            <input type ='text' placeholder= 'Ingrese el nuevo valor para la variable' />
+            <input  //value ={valorInput} 
+            onChange={cambioInput} 
+            type ='text' 
+            placeholder= 'Ingrese el nuevo valor para la variable' />
             <button onClick={funcionClick}>Haz click aca</button>
         </div>
     )
