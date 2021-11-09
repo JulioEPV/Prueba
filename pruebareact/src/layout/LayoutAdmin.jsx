@@ -5,6 +5,7 @@ const LayoutAdmin = () => {
         <div>
             <nav>Este es el navbar</nav>
             <Outlet/>
+            <footer>Este es el footer</footer>
         </div>
     )
 }

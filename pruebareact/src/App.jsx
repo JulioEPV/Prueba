@@ -6,12 +6,16 @@ import Usuarios from "./pages/admin/Usuarios";
 import styles from "./styles/styles.css";
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import LayoutAdmin from "./layout/LayoutAdmin";
+import { UserContext } from "./context/user";
+import React, {useState} from "react";
 
 
 
 function App() {
+    const[userData, setUserData] = useState({nombre:'Julio'});
   return (
-    <BrowserRouter>
+    <UserContext.Provider value={{userData,setUserData}}>
+      <BrowserRouter>
       <Routes>
          <Route path='/' element= {<Index/>} />
          <Route path = '/Contacto' element = {<Contacto/>}/>
@@ -20,8 +24,8 @@ function App() {
          <Route path = 'usuarios' element={<Usuarios />} />
          </Route>
       </Routes>
-    </BrowserRouter>
-
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 

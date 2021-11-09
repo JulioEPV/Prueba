@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 
 const Index = () => {
+
+    
     
     const [variable1, setVariable1] = useState("Hola mundo, soy un estado");
     const [valorInput, setValorInput] = useState("");
