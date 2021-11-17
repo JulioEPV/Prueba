@@ -5,7 +5,7 @@ const main  = async () => {
     await conectarBD();
 
     // CREAR UN USUARIO
-/*     await UserModel.create({
+    await UserModel.create({
         correo:"dsl@c.com",
         identificacion: "16546",
         nombre: "Daniel",
@@ -14,6 +14,17 @@ const main  = async () => {
         console.log('usuario creado',u);
     }).catch((e)=>{
         console.error('Error creando el usuario',e);
+    });
+
+    // OBTENER LOS USUARIOS
+/* 
+    await UserModel.find({correo:'dsl@c.com'})
+    .then((u)=> {
+        console.log('usuarios',u);
+    })
+
+    .catch((e) =>{
+        console.error('error obteniendo los usuarios',e);
     }); */
 };
 
