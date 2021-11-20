@@ -6,7 +6,7 @@ const main  = async () => {
     await conectarBD();
 
     // CREAR UN USUARIO
-    await UserModel.create({
+/*     await UserModel.create({
         apellido: "Saldarriaga",
         correo: "dsl@cc.com",
         identificacion: "123234",
@@ -19,7 +19,7 @@ const main  = async () => {
         console.log('usuario creado',u);
     }).catch((e)=>{
         console.error('Error creando el usuario',e);
-    });
+    }); */
 
     // OBTENER LOS USUARIOS
 /* 
@@ -30,6 +30,37 @@ const main  = async () => {
 
     .catch((e) =>{
         console.error('error obteniendo los usuarios',e);
+    }); */
+
+    // OBTENER UN SOLO USUARIO
+ /*    await UserModel.findOne({identificacion:'16546'})
+    .then((u) =>{
+        console.log('usuario encontrado', u);
+    })
+    .catch((e)=>{
+        console.error(e);
+    }); */
+
+    //EDITAR UN USUARIO
+/*     await UserModel.findOneAndUpdate(
+        {correo:'dsl@cc.com'},
+        {
+            nombre: 'Juan',
+            apellido: 'Lopez',
+        }
+        ).then(u=>{
+            console.log("usuario actualizado",u);
+        }).catch(e=>{
+            console.error('error acutalizando',e);
+        }); */
+
+    // ELIMINAR UN USUARIO
+/*     await UserModel.findOneAndDelete({correo:'dsl@cc.com'})
+    .then((u) => {
+        console.log('usuario eliminado', u);
+    })
+    .catch(e=>{
+        console.error(e);
     }); */
 };
 
