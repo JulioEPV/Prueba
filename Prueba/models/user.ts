@@ -15,6 +15,19 @@ const userSchema = new Schema<User>({
     correo:{
         type: String,
         required: true,
+        unique: true,
+        validate:{
+            validator: (email) => {
+                if(email.includes("@") && email.includes(".")) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                
+            },
+            
+        },
     },
 
     identificacion:{
@@ -42,8 +55,9 @@ const userSchema = new Schema<User>({
 
     estado:{
         type:String,
-        required:true,
         enum: Enum_EstadoUsuario,
+        default: Enum_EstadoUsuario.pendiente,
+
     }
 
 });
