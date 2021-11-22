@@ -52,6 +52,8 @@ const projectSchema = new Schema<Proyecto>({
         required: true,
         ref: UserModel,
     },
+
+
 })
 
 const ProjectModel = model('Proyecto', projectSchema, 'ColeccionProyectos');

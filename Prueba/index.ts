@@ -7,20 +7,20 @@ import { ObjectId } from 'mongoose';
 const main  = async () => {
     await conectarBD();
 
-    ProjectModel.create({
+/*     ProjectModel.create({
         nombre: 'Proyecto 2',
         presupuesto: 120,
         fechaInicio: Date.now(),
         fechaFin: new Date('2022/11/10'),
         lider:'6199943e581ebf8746f0fbdf',
-    });
+    }); */
 
-/*     const proyecto: any = await ProjectModel.find({nombre: 'Proyecto 1'});
-    console.log('El proyecto es: ',proyecto, proyecto[0].lider);
+    const proyecto: any = await ProjectModel.find({nombre: 'Proyecto 2'}).populate('lider');
+    console.log('El proyecto es: ',proyecto);
 
-    const lider = await UserModel.find({ _id: proyecto[0].lider});
-    console.log('El lider del proyecto es: ',lider); */
-
+/*     const lider = await UserModel.find({ _id: proyecto[0].lider});
+    console.log('El lider del proyecto es: ',lider);
+ */
 
 
  
