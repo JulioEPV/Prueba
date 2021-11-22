@@ -2,16 +2,27 @@ import conectarBD from  './db/db';
 import { UserModel } from './models/user';
 import { ProjectModel } from './models/project';
 import { Enum_Rol, Enum_EstadoUsuario } from './models/enums';
+import { ObjectId } from 'mongoose';
 
 const main  = async () => {
     await conectarBD();
 
     ProjectModel.create({
-        nombre: 'Proyecto 1',
+        nombre: 'Proyecto 2',
         presupuesto: 120,
         fechaInicio: Date.now(),
         fechaFin: new Date('2022/11/10'),
+        lider:'6199943e581ebf8746f0fbdf',
     });
+
+/*     const proyecto: any = await ProjectModel.find({nombre: 'Proyecto 1'});
+    console.log('El proyecto es: ',proyecto, proyecto[0].lider);
+
+    const lider = await UserModel.find({ _id: proyecto[0].lider});
+    console.log('El lider del proyecto es: ',lider); */
+
+
+
  
 };
 
