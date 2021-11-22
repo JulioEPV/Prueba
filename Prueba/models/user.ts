@@ -17,16 +17,11 @@ const userSchema = new Schema<User>({
         required: true,
         unique: true,
         validate:{
-            validator: (email) => {
-                if(email.includes("@") && email.includes(".")) {
-                    return true;
-                }
-                else{
-                    return false;
-                }
-                
+            validator: (email:string)=>{
+                return  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+
             },
-            
+            message:'El formato de correo electronico esta incorrecto',
         },
     },
 

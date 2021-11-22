@@ -1,12 +1,26 @@
 import conectarBD from  './db/db';
 import { UserModel } from './models/user';
+import { ProjectModel } from './models/project';
 import { Enum_Rol, Enum_EstadoUsuario } from './models/enums';
 
 const main  = async () => {
     await conectarBD();
 
-    // CREAR UN USUARIO
-    await UserModel.create({
+    ProjectModel.create({
+        nombre: 'Proyecto 1',
+        presupuesto: 120,
+        fechaInicio: Date.now(),
+        fechaFin: new Date('2022/11/10'),
+    });
+ 
+};
+
+main();
+
+// CRUD USUARIOS
+
+   // CREAR UN USUARIO
+/*     await UserModel.create({
         apellido: "Saldarriaga",
         correo: "dsllkkll@c.com",
         identificacion: "wewewe",
@@ -19,7 +33,7 @@ const main  = async () => {
         console.log('usuario creado',u);
     }).catch((e)=>{
         console.error('Error creando el usuario',e);
-    });
+    }); */
 
     // OBTENER LOS USUARIOS
 /* 
@@ -62,6 +76,3 @@ const main  = async () => {
     .catch(e=>{
         console.error(e);
     }); */
-};
-
-main();
