@@ -55,12 +55,12 @@ const projectSchema = new Schema<Proyecto>({
         ref: UserModel,
     },
 
-    objetivos: [
+/*     objetivos: [
         {
             type: Schema.Types.ObjectId,
             ref: ObjectiveModel,
         },
-    ],
+    ], */
 
 
 });
