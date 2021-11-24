@@ -3,15 +3,65 @@ import { UserModel } from './models/user';
 import { ProjectModel } from './models/project';
 import { Enum_Rol, Enum_EstadoUsuario, Enum_TipoObjetivo } from './models/enums';
 import { ObjectId } from 'mongoose';
-import { ObjectiveModel } from './models/objetctive';
+import { ObjectiveModel } from './models/objective';
+
+const crearProyectoConObjetivos = async () =>{
+    const usuarioInicial = await UserModel.create({
+        nombre: 'Daniel',
+        apellido: 'Saldarriaga',
+        correo: 'dsl@cc.com',
+        identificacion: 1234,
+        rol: Enum_Rol.administrador,
+        estado: Enum_EstadoUsuario.autorizado,
+    });
+    
+    const proyectoCreado = await ProjectModel.create({
+        nombre: 'Proyecto Mision TIC',
+        fechaInicio: new Date ('2021/12/24'),
+        fechaFin: new Date ('2022/12/24'),
+        presupuesto: 120000,
+        lider: usuarioInicial.id,
+    });
+    
+    const objetivoGeneral = await ObjectiveModel.create({
+        descripcion: 'Este es el objetivo general',
+        tipo: Enum_TipoObjetivo.general,
+        proyecto: proyectoCreado._id,
+    });
+    
+    const objetivoEspecifico1= await ObjectiveModel.create({
+        descripcion: 'Este es el objetivo especifico 1',
+        tipo: Enum_TipoObjetivo.especifico,
+        proyecto: proyectoCreado._id,
+    });
+    
+    const objetivoEspecifico2 = await ObjectiveModel.create({
+        descripcion: 'Este es el objetivo especifico 2',
+        tipo: Enum_TipoObjetivo.especifico,
+        proyecto: proyectoCreado._id,
+    });
+    
+    
+}
+
+const consultaProyectoConObjetivos = async () => {
+    const proyecto = await ProjectModel.findOne({_id:'619d9be4f21d789acaa30992'})
+
+    console.log('El proyecto que encontre fue', proyecto);
+
+    const objetivos = await ObjectiveModel.find({ project: '619d9be4f21d789acaa30992'});
+
+    console.log('Los objetivos del proyecto son: ', objetivos);
+
+    const proyectoConObjetivos = {...proyecto, objetivos:objetivos};
+    console.log('El proyecto con objetivos es: ', proyectoConObjetivos);
+}
+
 
 const main  = async () => {
     await conectarBD();
 
 
-
-
- 
 };
 
 main();

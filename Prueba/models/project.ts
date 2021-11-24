@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 import { Enum_EstadoProyecto,Enum_FaseProyecto, Enum_TipoObjetivo} from "./enums";
-import { ObjectiveModel } from "./objetctive";
+import { ObjectiveModel } from "./objective";
 import { UserModel } from "./user";
 
 interface Proyecto {
@@ -11,7 +11,7 @@ interface Proyecto {
     estado: Enum_EstadoProyecto;
     fase: Enum_FaseProyecto;
     lider: Schema.Types.ObjectId;
-    objetivos: [{ descripcion: String; tipo: Enum_TipoObjetivo }];
+    /* objetivos: [{ descripcion: String; tipo: Enum_TipoObjetivo }]; */
 
 }
 
