@@ -1,14 +1,14 @@
 enum Enum_Rol {
-    estudiante = "Estudiante",
-    lider = "Lider",
-    administrador = "Adminsitrador",
+    ESTUDIANTE = "ESTUDIANTE",
+    LIDER = "LIDER",
+    ADMINISTRADOR = "ADMINISTRADOR",
 }
 
 
 enum Enum_EstadoUsuario{
-    pendiente = "Pendiente",
-    autorizado = "Autorizado",
-    noAutorizado = "No autorizado",
+    PENDIENTE = 'PENDIENTE',
+    AUTORIZADO = 'AUTORIZADO',
+    NO_AUTORIZADO = 'NO_AUTORIZADO',
 }
 
 enum Enum_EstadoProyecto{
