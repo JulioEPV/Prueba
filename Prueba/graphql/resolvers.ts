@@ -1,3 +1,4 @@
+import { ProjectModel } from "../models/project";
 import {UserModel} from "../models/user"
 
 const resolvers = {
@@ -5,6 +6,16 @@ const resolvers = {
         Usuarios: async (parent, args)=>{
             const usuarios = await UserModel.find();
             return usuarios;
+
+        Usuario: async (parent, args) => {
+            const usuario = await UserModel.findOne({_id: args._id});
+            return usuario;
+        }
+
+        Proyectos: async (parent, args) =>{
+            const proyectos = await ProjectModel.find();
+            return proyectos;
+        }
         },
     },
 
